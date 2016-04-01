@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 设置连接类型 -->
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/TelemetryConnectionTypes"
+        android:entryValues="@array/TelemetryConnectionTypesValues"
+        android:key="@string/pref_connection_type_key"
+        android:summary="@string/pref_connection_type_summary"
+        android:title="@string/pref_connection_type" />
+
+    <!-- 设置连接参数. -->
+    <PreferenceScreen
+        android:key="pref_connection"
+        android:title="@string/pref_connection" >
+
+        <PreferenceCategory
+            android:key="pref_server"
+            android:title="@string/pref_server" >
+
+            <EditTextPreference
+                android:defaultValue="192.168.1.107"
+                android:gravity="center"
+                android:key="@string/pref_server_ip_key"
+                android:title="@string/pref_server_ip">
+            </EditTextPreference>
+
+            <EditTextPreference
+                android:defaultValue="4456"
+                android:gravity="center"
+                android:inputType="number"
+                android:key="@string/pref_server_port_key"
+                android:title="@string/pref_server_port">
+            </EditTextPreference>
+
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="pref_server_udp"
+            android:title="@string/pref_server_udp" >
+            <EditTextPreference
+                android:defaultValue="14550"
+                android:gravity="center"
+                android:inputType="number"
+                android:key="@string/pref_udp_server_port_key"
+                android:title="@string/pref_udp_server_port" />
+        </PreferenceCategory>
+
+    </PreferenceScreen>
+
+</PreferenceScreen>

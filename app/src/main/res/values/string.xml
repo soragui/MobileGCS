@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">UAH</string>
+    <string name="title_activity_drawer_navigation_ui">DrawerNavigationUI</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <!-- Flight Mode tabs -->
+    <string name="flight_mode">Flight Mode</string>
+
+    <!-- Generic strings -->
+    <string name="main_view">Home</string>
+    <string name="mission_settings">Mission Settings</string>
+    <string name="help">Help</string>
+    <string name="menu_drone_setup">Drone Setup</string>
+    <string name="app_settings">App Settings</string>
+    <string name="flight_data">Flight Data</string>
+    <string name="editor">Editor</string>
+    <string name="send_mission">Send Mission</string>
+    <string name="load_mission">Load Mission</string>
+
+    <!-- Drone Setup tabs -->
+    <string name="screen_tuning">Tuning</string>
+    <string name="screen_cal">Calibration</string>
+    <string name="screen_checklist">Checklist</string>
+    <string name="screen_rc">Radio</string>
+    <string name="screen_parameters">Parameters</string>
+
+    <!-- Drone locator strings -->
+    <string name="route_management">Route Management</string>
+    <string name="open_tlog_file">Open Log File</string>
+    <string name="status_waiting_for_gps">Waiting for GPS…</string>
+
+    <!--Menu Item-->
+    <string name="menu_connection">Connect</string>
+    <string name="menu_disconnection">Disconnect</string>
+    <string name="menu_refresh_route">Route Refresh</string>
+    <string name="menu_route_show_hide">Route Show/Hide</string>
+    <string name="menu_command_panel">Command Panel</string>
+
+    <string name="default_angle_value">--°</string>
+    <string name="telemetry_default_value">0.0</string>
+    <string name="speed_unit">m/s</string>
+    <string name="ground_speed_label">Ground Speed</string>
+    <string name="air_speed_label">Air Speed</string>
+    <string name="climb_rate_label">Climb Rate</string>
+    <string name="altitude_label">Altitude</string>
+    <string name="meter_unit">m</string>
+    <string name="oil_meter_label">Oil Meter</string>
+    <string name="oil_meter_unit">%</string>
+    <string name="flight_time_label">Flight Time</string>
+    <string name="flight_time_value">00</string>
+    <string name="flight_time_hour">h</string>
+    <string name="flight_time_minute">m</string>
+    <string name="flight_time_second">s</string>
+
+    <string name="zoom_fit">Zoom to Fit</string>
+
+    <!-- Toast Message -->
+    <string name="user_autopan_long_press">Long press to activate user auto panning.</string>
+    <string name="drone_autopan_long_press">Long press to activate drone auto panning.</string>
+    <string name="drone_no_location">No drone location available</string>
+
+
+    <string name="pref_connection_type">Telemetry Connection Type</string>
+    <string name="pref_connection_type_summary">Which link to use to connect to the drone</string>
+
+    <!-- Preference String -->
+    <string name="pref_connection">Connection Preferences</string>
+    <string name="pref_server">TCP Connection</string>
+    <string name="pref_server_ip">Server IP</string>
+    <string name="pref_server_port">Server PORT</string>
+    <string name="pref_server_udp">UDP Connection</string>
+    <string name="pref_udp_server_port">UDP Server Port</string>
+
+</resources>

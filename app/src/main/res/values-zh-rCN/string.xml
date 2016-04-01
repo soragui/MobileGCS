@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">UAH</string>
+    <string name="title_activity_drawer_navigation_ui">DrawerNavigationUI</string>
+
+    <string name="drawer_open">打开导航栏</string>
+    <string name="drawer_close">关闭导航栏</string>
+
+    <!-- Generic strings -->
+    <string name="main_view">主界面</string>
+    <string name="mission_settings">任务设置</string>
+    <string name="help">Help</string>
+    <string name="menu_drone_setup">Drone Setup</string>
+    <string name="app_settings">App Settings</string>
+    <string name="flight_data">飞行数据</string>
+    <string name="editor">Editor</string>
+    <string name="send_mission">Send Mission</string>
+    <string name="load_mission">Load Mission</string>
+
+    <!-- Drone Setup tabs -->
+    <string name="screen_tuning">Tuning</string>
+    <string name="screen_cal">设备校准</string>
+    <string name="screen_checklist">Checklist</string>
+    <string name="screen_rc">Radio</string>
+    <string name="screen_parameters">参数设置</string>
+
+    <!-- Flight Mode tabs -->
+    <string name="flight_mode">飞行模式</string>
+
+    <!-- Drone locator strings -->
+    <string name="route_management">航线管理</string>
+    <string name="open_tlog_file">Open Log File</string>
+    <string name="status_waiting_for_gps">Waiting for GPS…</string>
+
+    <!--菜单项-->
+    <string name="menu_connection">连接</string>
+    <string name="menu_disconnection">断开</string>
+    <string name="menu_refresh_route">轨迹刷新</string>
+    <string name="menu_route_show_hide">航线显示/隐藏</string>
+    <string name="menu_command_panel">指令盘</string>
+
+    <string name="default_angle_value">--°</string>
+    <string name="telemetry_default_value">0.0</string>
+    <string name="speed_unit">m/s</string>
+    <string name="ground_speed_label">地速</string>
+    <string name="air_speed_label">空速</string>
+    <string name="climb_rate_label">爬升速率</string>
+    <string name="altitude_label">高度</string>
+    <string name="meter_unit">m</string>
+    <string name="oil_meter_label">油量</string>
+    <string name="oil_meter_unit">%</string>
+    <string name="flight_time_label">飞行时间</string>
+    <string name="flight_time_value">00</string>
+    <string name="flight_time_unit">s</string>
+
+    <string name="zoom_fit">符合显示范围</string>
+
+    <string name="pref_connection_type">遥测连接方式</string>
+    <string name="pref_connection_type_summary">选择哪一种连接数传的方式与无人机沟通</string>
+
+    <!-- Preference String -->
+    <string name="pref_connection">连接参数</string>
+    <string name="pref_server">TCP 连接</string>
+    <string name="pref_server_ip">服务器IP</string>
+    <string name="pref_server_port">服务器端口</string>
+    <string name="pref_server_udp">UDP连接</string>
+    <string name="pref_udp_server_port">UDP服务器端口</string>
+
+</resources>

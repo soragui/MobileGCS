@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ziwo5.diygcs.diydrones.android.activities.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/flight_map_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <SlidingDrawer
+        android:id="@+id/simple_flight_data"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:handle="@+id/handle"
+        android:content="@+id/simple_flight_data_view"
+        android:rotation="180">
+
+        <ImageView
+            android:id="@id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/drawer_tab"
+            tools:ignore="ContentDescription"
+            android:rotation="180"/>
+
+        <com.diygcs.android.widgets.FitsSystemWindowsFrameLayout
+            android:id="@+id/simple_flight_data_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            tools:layout="@layout/simple_flight_data_layout"
+            android:rotation="180">
+
+        </com.diygcs.android.widgets.FitsSystemWindowsFrameLayout>
+
+    </SlidingDrawer>
+
+    <com.diygcs.android.widgets.FitsSystemWindowsFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:fitsSystemWindows="true"
+        >
+
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/button_my_location"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical|end"/>
+    </com.diygcs.android.widgets.FitsSystemWindowsFrameLayout>
+
+</RelativeLayout>

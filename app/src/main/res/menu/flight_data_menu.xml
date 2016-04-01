@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_connection"
+        android:orderInCategory="1"
+        android:title="@string/menu_connection"/>
+
+    <group
+        android:id="@+id/menu_group_connected"
+        android:enabled="false"
+        android:visible="false">
+
+        <item
+            android:id="@+id/menu_refresh_route"
+            android:orderInCategory="2"
+            android:title="@string/menu_refresh_route"/>
+
+        <item
+            android:id="@+id/menu_route_show_hide"
+            android:orderInCategory="3"
+            android:title="@string/menu_route_show_hide"/>
+
+        <item
+            android:id="@+id/menu_command_panel"
+            android:orderInCategory="4"
+            android:title="@string/menu_command_panel"/>
+
+    </group>
+
+</menu>

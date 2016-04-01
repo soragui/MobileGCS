@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="TelemetryConnectionTypesValues">
+        <item name="TCP">1</item>
+        <item name="UDP">2</item>
+    </string-array>
+
+    <string-array name="TelemetryConnectionTypes">
+        <item name="TCP">TCP</item>
+        <item name="UDP">UDP</item>
+    </string-array>
+</resources>
