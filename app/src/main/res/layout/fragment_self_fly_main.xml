@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/transparentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 纵向设置 -->
+        <include
+            layout="@layout/length_wise_setting_layout"/>
+
+        <!-- 横向设置 -->
+        <include
+            layout="@layout/cross_wise_setting_layout"/>
+
+        <!-- 航向设置 -->
+        <include
+            layout="@layout/course_setting_layout"/>
+
+        <!-- 升降设置 -->
+        <include
+            layout="@layout/lifting_setting_layout"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.ziwo5.diygcs.diydrones.android.activities.CalibraActivity">
+    tools:context="com.diygcs.android.activities.DeviceCfgActivity">
 
     <include layout="@layout/content_calibra" />
 

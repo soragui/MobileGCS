@@ -2,6 +2,8 @@ package org.uah.core.drone;
 
 import com.MUHLink.MUHLinkPacket;
 import com.MUHLink.common.msg_attitude;
+import com.MUHLink.common.msg_flystatus1;
+import com.MUHLink.common.msg_flystatus2;
 import com.MUHLink.common.msg_heartbeat;
 import com.MUHLink.enums.MUH_MSG_ID;
 
@@ -34,29 +36,31 @@ public class Drone {
     public Time fly_time;
     public Attitude attitude;
 
+    public float theta;
+    public float psi;
+    public float phi;
+
     public Drone() {
 
     }
 
     public void getHeartbeatMsg(msg_heartbeat msgHeartbeat) {
-        this.type_num = msgHeartbeat.type_num;
-        this.contral_mode = msgHeartbeat.contral_mode;
-        this.fly_state = msgHeartbeat.fly_state;
-        this.fly_mode = msgHeartbeat.fly_mode;
 
-        this.longitude = msgHeartbeat.longitude;
-        this.latitude = msgHeartbeat.latitude;
-        this.altitude = msgHeartbeat.altitude;
+        this.longitude = msgHeartbeat.ac_lon;
+        this.latitude = msgHeartbeat.ac_lat;
+        this.altitude = msgHeartbeat.ac_height;
 
-        this.ground_speed = msgHeartbeat.ground_speed;
-        this.vertical_speed = msgHeartbeat.vertical_speed;
-        this.line_angle = msgHeartbeat.line_angle;
-        this.flight_angle = msgHeartbeat.flight_angle;
+        this.fly_time = new Time(msgHeartbeat.flyTime);
+    }
 
-        this.cpu_ratio = msgHeartbeat.cpu_ratio;
-        this.voltage = msgHeartbeat.voltage;
-        this.oil_meter = msgHeartbeat.oil_meter;
-        this.fly_time = new Time(msgHeartbeat.fly_time);
+    public void getFlyStatus1(msg_flystatus1 msgFlystatus1) {
+        this.theta = msgFlystatus1.theta;
+        this.psi = msgFlystatus1.psi;
+        this.phi = msgFlystatus1.phi;
+    }
+
+    public void getFlyStatus2(msg_flystatus2 msgFlystatus2) {
+
     }
 
     public void getAttitudeMsg(msg_attitude msgAttitude) {

@@ -28,4 +28,13 @@
     <color name="light_title_bg">#e4e4e4</color>
     <color name="Droidblue">#3CB4E5</color>
 
+    <color name="flightDataLayout">#3CB4E3</color>
+
+    <color name="color_drone_type">#9384c1</color>
+    <color name="color_setup_type">#84a8cc</color>
+    <color name="color_setup_mag">#9384c1</color>
+    <color name="color_rc_transmit_cali">#84a8cc</color>
+    <color name="color_signal_cali">#9384c1</color>
+    <color name="color_self_fly">#84a8cc</color>
+
 </resources>

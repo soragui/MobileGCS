@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+        <Button
+                android:id="@+id/drone_type_select_btn"
+                style="@style/device_cfg_button"
+                android:background="@drawable/button_drone_type_select"
+                android:text="@string/drone_type_select"/>
+
+        <Button
+                android:id="@+id/setup_type_select_btn"
+                style="@style/device_cfg_button"
+                android:layout_toEndOf="@id/drone_type_select_btn"
+                android:background="@drawable/button_setup_type_select"
+                android:text="@string/setup_type_select"/>
+
+        <Button
+                android:id="@+id/setup_mag_btn"
+                style="@style/device_cfg_button"
+                android:layout_toEndOf="@id/setup_type_select_btn"
+                android:background="@drawable/button_setup_mag"
+                android:text="@string/setup_mag_title"/>
+
+        <Button
+                android:id="@+id/rc_transmit_cali_btn"
+                style="@style/device_cfg_button"
+                android:layout_toEndOf="@id/setup_mag_btn"
+                android:background="@drawable/button_rc_transmit_cali"
+                android:text="@string/rc_transmit_cali"/>
+
+        <Button
+                android:id="@+id/signal_cali_btn"
+                style="@style/device_cfg_button"
+                android:layout_toEndOf="@id/rc_transmit_cali_btn"
+                android:background="@drawable/button_signal_cali"
+                android:text="@string/signal_cali"/>
+
+        <Button
+                android:id="@+id/self_fly_btn"
+                style="@style/device_cfg_button"
+                android:layout_below="@id/drone_type_select_btn"
+                android:background="@drawable/button_self_fly"
+                android:text="@string/self_fly"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+            android:id="@+id/configuration_screen"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"/>
+
+</LinearLayout>

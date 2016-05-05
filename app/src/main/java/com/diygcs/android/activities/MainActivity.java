@@ -2,6 +2,8 @@ package com.diygcs.android.activities;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.preference.Preference;
@@ -17,16 +19,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.SlidingDrawer;
+import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.diygcs.android.DiygcsAPP;
 import com.diygcs.android.R;
+import com.diygcs.android.fragment.DroneCommandFragment;
 import com.diygcs.android.fragment.FlightMapFragment;
 import com.diygcs.android.fragment.SimpleDataFragment;
 import com.diygcs.android.maps.BaiduMapFragment;
 import com.diygcs.android.maps.MapViewFragment;
 import com.diygcs.android.utils.DiygcsAPPPrefs;
+import com.diygcs.android.widgets.CircleTextView;
 
 import org.uah.core.MUHLink.TCPConnection;
 import org.uah.core.drone.Drone;
@@ -38,8 +43,11 @@ public class MainActivity extends DrawerNavigationUI implements
     private static final String TAG = MainActivity.class.getSimpleName();
 
     /**
-     *  Handle to the app preferences.
+     *  无人机各种指示灯
      */
+    private TextView controlStateView;
+    private TextView groundSkyView;
+    private TextView linkStateView;
 
     private FlightMapFragment mapFragment;
 
@@ -56,10 +64,21 @@ public class MainActivity extends DrawerNavigationUI implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initCompVariable();
+
+        initCompListener();
+
+    }
+
+    /**
+     *  初始化组件变量
+     */
+    private void initCompVariable() {
         fragmentManager = getSupportFragmentManager();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
+
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayShowCustomEnabled(true);
@@ -67,9 +86,17 @@ public class MainActivity extends DrawerNavigationUI implements
             LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View v = inflator.inflate(R.layout.activity_main_action_bar, null);
 
-            //ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-            //        ViewGroup.LayoutParams.MATCH_PARENT);
             actionBar.setCustomView(v);
+
+            controlStateView = (TextView)v.findViewById(R.id.control_state_textView);
+            controlStateView.setBackgroundResource(R.drawable.control_state_ok);
+
+            groundSkyView = (TextView)v.findViewById(R.id.ground_sky_textView);
+            groundSkyView.setBackgroundResource(R.drawable.ground_sky_ok);
+
+            linkStateView = (TextView)v.findViewById(R.id.link_state_textView);
+            linkStateView.setBackgroundResource(R.drawable.link_state_ok);
+
         }
 
         final SlidingDrawer slidingDrawer = (SlidingDrawer)findViewById(R.id.simple_flight_data);
@@ -114,10 +141,69 @@ public class MainActivity extends DrawerNavigationUI implements
                     .commit();
         }
 
+        /**
+         * Drone Command Fragment
+         */
+        DroneCommandFragment droneCommandFragment = (DroneCommandFragment)fragmentManager
+                .findFragmentById(R.id.drone_command_view);
+        if(droneCommandFragment == null) {
+            droneCommandFragment = new DroneCommandFragment();
+            fragmentManager.beginTransaction()
+                    .add(R.id.drone_command_view, droneCommandFragment)
+                    .commit();
+        }
+    }
+
+    /**
+     *  初始化组件事件监听函数
+     */
+    private void initCompListener() {
+
         mGoToMyLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mapFragment.goToMyLocation();
+            }
+        });
 
+        mapZoomin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mapFragment != null) {
+                    mapFragment.zoomMap(0.2f);
+                }
+            }
+        });
+
+        mapZoomin.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                if (mapFragment != null) {
+                    mapFragment.zoomMap(0.2f);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        mapZoomout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mapFragment != null) {
+                    mapFragment.zoomMap(-0.2f);
+                }
+            }
+        });
+
+        mapZoomout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (mapFragment != null) {
+                    mapFragment.zoomMap(-0.2f);
+                    return true;
+                }
+                return false;
             }
         });
 
@@ -132,10 +218,12 @@ public class MainActivity extends DrawerNavigationUI implements
         });
     }
 
-    /*
-    *  Account for the various ui elements and update the map padding so that it
-    *  remains 'vivible'.
-    * */
+    /**
+     * Account for the various ui elements and update the map padding so that it
+     *  remains 'vivible'.
+     * @param isOpened
+     * @param drawerHeight
+     */
     private void updateLocationButtonsMargin(boolean isOpened, int drawerHeight) {
 
         // Update the right margin for the my location button
@@ -172,27 +260,6 @@ public class MainActivity extends DrawerNavigationUI implements
             }
         }
     }
-
-    /**
-     * 编辑菜单
-     * */
-    /*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.flight_data_menu, menu);
-
-        final MenuItem toggleConnectionItem = menu.findItem(R.id.menu_connection);
-        if(mDroneManager.isconnect()) {
-            toggleConnectionItem.setTitle(R.string.menu_disconnection);
-            //Log.i(TAG, "DISCONN");
-        } else {
-            toggleConnectionItem.setTitle(R.string.menu_connection);
-            //Log.i(TAG, "CONN");
-        }
-
-        return true;
-    }
-    */
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {

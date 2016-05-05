@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ziwo5.diygcs.diydrones.android.activities.MainActivity">
+    tools:context="com.diygcs.android.activities.MainActivity">
 
     <FrameLayout
         android:id="@+id/flight_map_fragment"
@@ -53,5 +53,35 @@
             android:layout_margin="8dp"
             android:layout_gravity="center_vertical|end"/>
     </com.diygcs.android.widgets.FitsSystemWindowsFrameLayout>
+
+    <!-- -->
+
+    <com.diygcs.android.widgets.WrapSlidingDrawer
+            android:id="@+id/drone_command"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:handle="@+id/handle"
+            android:content="@+id/drone_command_view"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentBottom="true">
+
+        <ImageView
+                android:id="@id/handle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/drawer_tab_down"
+                tools:ignore="ContentDescription"/>
+
+        <com.diygcs.android.widgets.FitsSystemWindowsFrameLayout
+                android:id="@+id/drone_command_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                tools:layout="@layout/fragment_drone_command">
+
+        </com.diygcs.android.widgets.FitsSystemWindowsFrameLayout>
+
+    </com.diygcs.android.widgets.WrapSlidingDrawer>
 
 </RelativeLayout>

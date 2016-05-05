@@ -28,4 +28,26 @@
 
     </group>
 
+    <group
+        android:id="@+id/menu_group_deviceConfig"
+        android:enabled="false"
+        android:visible="false" >
+
+        <item
+            android:id="@+id/menu_magneto_cali"
+            android:orderInCategory="1"
+            android:title="@string/menu_magneto_cali"/>
+
+        <item
+            android:id="@+id/menu_rc_transmit_cali"
+            android:orderInCategory="2"
+            android:title="@string/rc_transmit_cali"/>
+
+        <item
+            android:id="@+id/menu_self_fly"
+            android:orderInCategory="3"
+            android:title="@string/self_fly" />
+
+    </group>
+
 </menu>

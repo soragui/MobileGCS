@@ -46,7 +46,7 @@ public class MUHLinkClient implements MUHLinkStream.MUHLinkOutputStream{
 
     @Override
     public void sendMuhPacket(MUHLinkPacket packet) {
-
+        droneConn.sendMuhPacket(packet);
     }
 
     @Override
@@ -79,4 +79,5 @@ public class MUHLinkClient implements MUHLinkStream.MUHLinkOutputStream{
     public void closeConnection() {
         droneConn.disconnect();
     }
+
 }

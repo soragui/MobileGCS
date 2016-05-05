@@ -6,4 +6,260 @@
     android:layout_height="match_parent"
     tools:context="com.example.ziwo5.diygcs.diydrones.android.activities.FlightActivity">
 
+    <!-- 显示飞机飞行状态和控制模式 -->
+    <LinearLayout
+        android:id="@+id/flight_state_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/flightDataLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/flight_state"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/contral_mode"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/flight_mode"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/flightStateText"
+                style="@style/flightDataText" />
+
+            <TextView
+                android:id="@+id/contralModeText"
+                style="@style/flightDataText" />
+
+            <TextView
+                android:id="@+id/flightModeText"
+                style="@style/flightDataText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flight_position_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flight_state_layout"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:background="@color/flightDataLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/longitude"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/latitude"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/altitude"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/LongitudeText"
+                style="@style/flightDataText" />
+
+            <TextView
+                android:id="@+id/LatitudeText"
+                style="@style/flightDataText" />
+
+            <TextView
+                android:id="@+id/AltitudeText"
+                style="@style/flightDataText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flight_attitude_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flight_position_layout"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:background="@color/flightDataLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/roll"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/pitch"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/yaw"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/rollText"
+                style="@style/flightDataText"
+                android:text="@string/default_angle_value"/>
+
+            <TextView
+                android:id="@+id/pitchText"
+                style="@style/flightDataText"
+                android:text="@string/default_angle_value"/>
+
+            <TextView
+                android:id="@+id/yawText"
+                style="@style/flightDataText"
+                android:text="@string/default_angle_value"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 其他重要数据的显示 -->
+    <LinearLayout
+        android:id="@+id/flight_other_one_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flight_attitude_layout"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:background="@color/flightDataLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/ground_speed_label"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/air_speed_label"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/climb_rate_label"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/groundText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+            <TextView
+                android:id="@+id/airText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+            <TextView
+                android:id="@+id/climbrateText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flight_other_two_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flight_other_one_layout"
+        android:layout_alignParentStart="true"
+        android:orientation="vertical"
+        android:background="@color/flightDataLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/oil_meter_label"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/flight_time_label"/>
+
+            <TextView
+                style="@style/flightDataText"
+                android:text="@string/cpu_use_ratio"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/oilMeterText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+            <TextView
+                android:id="@+id/fligtTimeText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+            <TextView
+                android:id="@+id/cpuRatioText"
+                style="@style/flightDataText"
+                android:text="@string/telemetry_default_value"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
 </RelativeLayout>

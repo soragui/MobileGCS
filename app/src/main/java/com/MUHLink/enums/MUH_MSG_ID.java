@@ -24,5 +24,8 @@ public class MUH_MSG_ID {
      *  -51- [UAV_COMP_ID_FCC] 飞控机类组件 消息ID
      */
     public static final int UAV_MSG_FCC_HEARTBEAT = 0x20;
+    public static final int UAV_MSG_FCC_FLYSTATUS1 = 0x21;
+    public static final int UAV_MSG_FCC_FLYSTATUS2 = 0x22;
+    public static final int UAV_MSG_FCC_FLYSTATUS3 = 0x23;
     public static final int UAB_MSG_FCC_ATTITUDE = 0x27;
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/veryCommonStyle"
+            android:layout_weight="2"
+            android:text="@string/speed_scope"/>
+        <EditText
+            style="@style/veryCommonStyle"
+            android:layout_weight="3"
+            android:inputType="number"
+            android:layout_height="wrap_content" />
+        <TextView
+            style="@style/commonStyle"
+            android:text="@string/scope_to"/>
+        <EditText
+            style="@style/veryCommonStyle"
+            android:layout_weight="3"
+            android:inputType="number"
+            android:layout_height="wrap_content" />
+        <TextView
+            style="@style/commonStyle"
+            android:text="@string/sensitivity_unit"/>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/common_setting_query_part" />
+
+</LinearLayout>

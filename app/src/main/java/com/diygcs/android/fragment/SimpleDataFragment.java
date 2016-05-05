@@ -25,7 +25,7 @@ import org.w3c.dom.Text;
  * Created by ziwo5 on 2016-03-01.
  */
 
-public class SimpleDataFragment extends Fragment {
+public class SimpleDataFragment extends BaseFragment {
 
     private static final String TAG = SimpleDataFragment.class.getSimpleName();
 
@@ -41,7 +41,7 @@ public class SimpleDataFragment extends Fragment {
             Log.i(TAG, "GET-COST");
 
             final String action = intent.getAction();
-            final Drone drone = diygcsAPP.getDrone();
+            final Drone drone = getDrone();
 
             if(AttributeEvent.DRONE_HEARTBEAT_DATA.equals(action)) {
                 Log.i(TAG, "UPDATE-SIMPLE-DATA-VIEW");
@@ -70,15 +70,12 @@ public class SimpleDataFragment extends Fragment {
     private TextView timeMinute;
     private TextView timeSecond;
 
-    private DiygcsAPP diygcsAPP;
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "REG-RECV");
-        diygcsAPP = (DiygcsAPP)getActivity().getApplication();
 
-        diygcsAPP.getLocalBroadcastManager().registerReceiver(eventReceiver, eventFilter);
+        getApp().getLocalBroadcastManager().registerReceiver(eventReceiver, eventFilter);
     }
 
     @Nullable
@@ -114,7 +111,7 @@ public class SimpleDataFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "UN-REG");
-        diygcsAPP.getLocalBroadcastManager().unregisterReceiver(eventReceiver);
+        getApp().getLocalBroadcastManager().unregisterReceiver(eventReceiver);
     }
 
     private void updateHeartBeatMsg(Drone drone) {

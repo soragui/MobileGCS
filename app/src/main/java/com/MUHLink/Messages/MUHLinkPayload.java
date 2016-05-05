@@ -107,8 +107,16 @@ public class MUHLinkPayload {
         return Float.intBitsToFloat(getInt());
     }
 
+    public double getDouble() {
+        return Double.longBitsToDouble(getLong());
+    }
+
     public float getFloatReverse() {
         return Float.intBitsToFloat(getIntReverse());
+    }
+
+    public double getDoubleReverse() {
+        return Double.longBitsToDouble(getLongReverse());
     }
 
     public void putByte(byte data) {

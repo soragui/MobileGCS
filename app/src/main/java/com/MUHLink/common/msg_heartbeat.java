@@ -15,26 +15,40 @@ public class msg_heartbeat extends MUHLinkMessage {
 
     private static final String TAG = msg_heartbeat.class.getSimpleName();
 
-    public byte type_num;
-    public byte contral_mode;
-    public byte fly_state;
-    public byte fly_mode;
+    public byte uasInfo;
+    public byte run_mode;
 
-    public float longitude;
-    public float latitude;
-    public float altitude;
+    public byte mByteThree;
+    public byte mLock_stk;
+    public byte CtrlMode_stk;
+    public byte statusOnSky;
+    public byte stateOnReset;
 
-    public float ground_speed;
-    public float vertical_speed;
-    public float line_angle;
-    public float flight_angle;
+    public byte mode_nav;
+    public byte mode_vert;
+    public byte mode_guid;
 
-    public float cpu_ratio;
-    public float voltage;
-    public float oil_meter;
+    public double ac_lon;
+    public double ac_lat;
 
-    public short fly_time;
+    public float ac_Vd;
+    public float ac_Hdot;
+    public float ac_gPsi;
+    public float ac_hPsi;
+    public float ac_height;
 
+    public short flyTime;
+    public byte  gpsState;
+    public byte  rollstate;
+
+    public float oilEng;
+    public float voltCell;
+    public float voltBatt;
+    public float templiquid;
+    public float tempEng[] = new float[2];
+    public float ac_dot;
+    public float ac_dL;
+    public float freq_link;
 
     public msg_heartbeat(MUHLinkPacket muhLinkPacket) {
         this.sysid = muhLinkPacket.sysID;
@@ -52,44 +66,81 @@ public class msg_heartbeat extends MUHLinkMessage {
     public void unpack(MUHLinkPayload payload) {
         payload.resetIndex();
 
-        this.type_num = payload.getByte();
-        this.contral_mode = payload.getByte();
-        this.fly_state = payload.getByte();
-        this.fly_mode = payload.getByte();
+        /**
+         * 接受解析数据
+         */
+        this.uasInfo = payload.getByte();
+        this.run_mode = payload.getByte();
 
-        this.longitude = payload.getFloat();
-        this.latitude = payload.getFloat();
-        this.altitude = payload.getFloat();
+        this.mByteThree = payload.getByte();
+        this.mLock_stk = (byte)(mByteThree & 0x80);
+        this.CtrlMode_stk = (byte)(mByteThree & 0x0F);
+        this.statusOnSky = (byte)(mByteThree & 0x40);
+        this.stateOnReset = (byte)(mByteThree & 0x20);
 
-        this.vertical_speed = payload.getFloat();
-        this.ground_speed = payload.getFloat();
-        this.line_angle = payload.getFloat();
-        this.flight_angle = payload.getFloat();
+        this.mode_nav = payload.getByte();
+        this.mode_vert = payload.getByte();
+        this.mode_guid = payload.getByte();
 
-        this.cpu_ratio = payload.getFloat();
-        this.voltage = payload.getFloat();
-        this.oil_meter = payload.getFloat();
+        this.ac_lon = payload.getDouble();
+        this.ac_lat = payload.getDouble();
 
-        this.fly_time = payload.getShort();
+        this.ac_Vd = payload.getShort()/10.0f;
+        this.ac_height = payload.getShort()/10.0f;
+        this.ac_Hdot = payload.getByte()/10.0f;
+        this.ac_gPsi = payload.getShort()/100.0f;
+        this.ac_hPsi = payload.getShort()/100.0f;
 
-        Log.i(TAG, "type_num " + type_num);
-        Log.i(TAG, "contral_mode " + contral_mode);
-        Log.i(TAG, "fly_state " + fly_state);
-        Log.i(TAG, "fly_mode " + fly_mode);
+        this.gpsState = payload.getByte();
+        this.flyTime = payload.getShort();
+        this.oilEng = payload.getByte();
+        this.voltCell = payload.getShort()/10.0f;
+        this.voltBatt = payload.getShort()/10.0f;
 
-        Log.i(TAG, "Longitude " + longitude);
-        Log.i(TAG, "Latitude " + latitude);
-        Log.i(TAG, "Altitude " + altitude);
+        this.templiquid = payload.getByte();
+        this.tempEng[0] = payload.getByte();
+        this.tempEng[1] = payload.getByte();
+        this.ac_dot = payload.getByte();
+        this.ac_dL = payload.getShort();
+        this.freq_link = payload.getByte();
+        this.rollstate = payload.getByte();
 
-        Log.i(TAG, "vertical_speed " + vertical_speed);
-        Log.i(TAG, "ground_speed " + ground_speed);
-        Log.i(TAG, "line_angle " + line_angle);
-        Log.i(TAG, "flight_angle " + flight_angle);
+        /**
+         * 输出调试信息
+         */
+        Log.i(TAG, "uasInfo: " + this.uasInfo);
+        Log.i(TAG, "run_mode: " + this.run_mode);
 
-        Log.i(TAG, "cpu_ratio " + cpu_ratio);
-        Log.i(TAG, "oil_meter " + oil_meter);
-        Log.i(TAG, "voltage " + voltage);
+        Log.i(TAG, "mLock_stk: " + this.mLock_stk);
+        Log.i(TAG, "CtrlMode_stk: " + this.CtrlMode_stk);
+        Log.i(TAG, "statusOnSky: " + this.statusOnSky);
+        Log.i(TAG, "stateOnReset: " + this.stateOnReset);
 
-        Log.i(TAG, "Fly_time " + fly_time );
+        Log.i(TAG, "mode_nav: " + this.mode_nav);
+        Log.i(TAG, "mode_vert: " + this.mode_vert);
+        Log.i(TAG, "mode_guid: " + this.mode_guid);
+
+        Log.i(TAG, "ac_lon: " + this.ac_lon);
+        Log.i(TAG, "ac_lat: " + this.ac_lat);
+        Log.i(TAG, "ac_height: " + this.ac_height);
+
+        Log.i(TAG, "ac_Vd: " + this.ac_Vd);
+        Log.i(TAG, "ac_Hdot: " + this.ac_Hdot);
+        Log.i(TAG, "ac_gPsi: " + this.ac_gPsi);
+        Log.i(TAG, "ac_hPsi: " + this.ac_hPsi);
+        Log.i(TAG, "gpsState: " + this.gpsState);
+        Log.i(TAG, "flyTime: " + this.flyTime);
+
+        Log.i(TAG, "oilEng: " + this.oilEng);
+        Log.i(TAG, "voltCell: " + this.voltCell);
+        Log.i(TAG, "voltBatt: " + this.voltBatt);
+
+        Log.i(TAG, "templiquid: " + this.templiquid);
+        Log.i(TAG, "tempEngTwo: " + this.tempEng[0]);
+        Log.i(TAG, "tempEngOne: " + this.tempEng[1]);
+        Log.i(TAG, "ac_dot: " + this.ac_dot);
+        Log.i(TAG, "ac_dL: " + this.ac_dL);
+        Log.i(TAG, "freq_link: " + this.freq_link);
+        Log.i(TAG, "rollstate: " + this.rollstate);
     }
 }

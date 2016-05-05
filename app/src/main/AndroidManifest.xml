@@ -36,35 +36,41 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="ukCRv0iTGE82zXRXZ7fF6eB2" />
 
-        <activity android:name=".activities.MainActivity">
+        <activity
+                android:name=".activities.MainActivity"
+                android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.FlightActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask">
         </activity>
         <activity
             android:name=".activities.ParamsActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask">
         </activity>
         <activity
             android:name=".activities.RouteActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".activities.MissionActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"/>
         <activity
-            android:name=".activities.CalibraActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+            android:name=".activities.DeviceCfgActivity"
+            android:label="@string/screen_cal"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask">
 
         </activity>
         <service

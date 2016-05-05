@@ -7,6 +7,7 @@ import com.MUHLink.Parser;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -29,10 +30,17 @@ public abstract class MUHLinkConnection {
     private final AtomicInteger mConnectionStatus = new AtomicInteger(MUHLINK_DISCONNECTED);
 
     /**
-     *  多个共享连接端口的进程，用来分发数据包
+     *  多个共享连接端口的进程，用来分发接收到的数据包
      */
     private final ConcurrentHashMap<String, MUHLinkConnectionListener> mListeners =
             new ConcurrentHashMap<String, MUHLinkConnectionListener>();
+
+    /**
+     *  为要发送的数据包排队，如果没有数据发送这个进程将阻塞
+     */
+    private final LinkedBlockingQueue<MUHLinkPacket> mPacketsToSend =
+            new LinkedBlockingQueue<MUHLinkPacket>();
+
     /*
     *  Listen for incoming data on the mavlink connection.
     * */
@@ -47,6 +55,7 @@ public abstract class MUHLinkConnection {
                  **/
                 openConnection();
                 mConnectionStatus.set(MUHLINK_CONNECTED);
+                reportConnect();
                 Log.i(TAG, "CONN-THREAD");
 
                 /**
@@ -54,6 +63,7 @@ public abstract class MUHLinkConnection {
                  */
                 sendingThread = new Thread(mSendingTask, "MUHLinkConnection-Sending Thread");
                 sendingThread.start();
+                Log.i(TAG, "SENDING-THREAD");
 
                 final Parser parser = new Parser();
 
@@ -103,7 +113,27 @@ public abstract class MUHLinkConnection {
     private final Runnable mSendingTask = new Runnable() {
         @Override
         public void run() {
+            int msgSeqNumer = 0;
 
+            try {
+                while(isConnected()) {
+                    final MUHLinkPacket packet = mPacketsToSend.take();
+                    //Log.i(TAG, "ERROR");
+                    packet.seq = (byte)msgSeqNumer;
+                    byte[] buffer = packet.encodePacket();
+
+                    try {
+                        sendBuffer(buffer);
+                    } catch (IOException e) {
+                        Log.i(TAG, e.getMessage());
+                    }
+
+                }
+            } catch (InterruptedException e) {
+                //Log.i(TAG, e.getMessage());
+            } finally {
+                disconnect();
+            }
         }
     };
 
@@ -151,6 +181,16 @@ public abstract class MUHLinkConnection {
         }
 
         return false;
+    }
+
+    /**
+     * 提供发送数据的队列
+     * @param packet
+     */
+    public void sendMuhPacket(MUHLinkPacket packet) {
+        if(!mPacketsToSend.offer(packet)) {
+            Log.i(TAG, "Unable to send muhlink packet. Packet queue is full!");
+        }
     }
 
     /**

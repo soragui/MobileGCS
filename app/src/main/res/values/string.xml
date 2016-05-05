@@ -5,9 +5,6 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
-    <!-- Flight Mode tabs -->
-    <string name="flight_mode">Flight Mode</string>
-
     <!-- Generic strings -->
     <string name="main_view">Home</string>
     <string name="mission_settings">Mission Settings</string>
@@ -21,7 +18,7 @@
 
     <!-- Drone Setup tabs -->
     <string name="screen_tuning">Tuning</string>
-    <string name="screen_cal">Calibration</string>
+    <string name="screen_cal">Device Config</string>
     <string name="screen_checklist">Checklist</string>
     <string name="screen_rc">Radio</string>
     <string name="screen_parameters">Parameters</string>
@@ -31,13 +28,43 @@
     <string name="open_tlog_file">Open Log File</string>
     <string name="status_waiting_for_gps">Waiting for GPS…</string>
 
+    <!-- Drone Setup Resource Strings -->
+    <string name="setup_mag_title">Compass Calibration</string>
+    <string name="setup_mag_start">Press Calibrate to start magnetometer calibration. Perform the calibration outdoors away from metal objects.</string>
+    <string name="common_setting">Setting</string>
+    <string name="common_query">Query</string>
+    <string name="speed_scope">Speed Scope</string>
+    <string name="scope_to"> --- </string>
+    <string name="sensitivity_unit">°/s</string>
+    <string name="length_wise_dir">LengthWiseSetting</string>
+    <string name="cross_wise_dir">CrossWiseSetting</string>
+    <string name="course_dir">CourseSetting</string>
+    <string name="lifting_dir">LiftingSetting</string>
+    <string name="inner_sensitivity">InnerSensitivity</string>
+    <string name="outer_sensitivity">OuterSensitivity</string>
+    <string name="course_sensitivity">CourseSensitivity</string>
+    <string name="lifting_sensitivity">LiftingSensitivity</string>
+    <string name="rc_transmit_cali">RCTransmit Calibration</string>
+    <string name="drone_type_select">Drone Type</string>
+    <string name="setup_type_select">Setup Type</string>
+    <string name="signal_cali">Signal Calibration</string>
+    <string name="self_fly">Self Fly </string>
+
+    <!-- Common Setup Buttons Resource Strings -->
+    <string name="button_setup_calibrate">Calibrate</string>
+    <string name="button_setup_cancel">Cancel</string>
+
     <!--Menu Item-->
     <string name="menu_connection">Connect</string>
     <string name="menu_disconnection">Disconnect</string>
     <string name="menu_refresh_route">Route Refresh</string>
     <string name="menu_route_show_hide">Route Show/Hide</string>
     <string name="menu_command_panel">Command Panel</string>
+    <string name="menu_magneto_cali">MagnetoMeter</string>
+    <string name="menu_analog_channel">Analog Channel</string>
+    <string name="menu_control_setup">Control Law Setup</string>
 
+    <!-- Flight Data String -->
     <string name="default_angle_value">--°</string>
     <string name="telemetry_default_value">0.0</string>
     <string name="speed_unit">m/s</string>
@@ -53,6 +80,25 @@
     <string name="flight_time_hour">h</string>
     <string name="flight_time_minute">m</string>
     <string name="flight_time_second">s</string>
+    <string name="cpu_use_ratio">CPU Ratio</string>
+    <string name="flight_state">Flight State</string>
+    <string name="contral_mode">Contral Mode</string>
+    <string name="flight_mode">Flight Mode</string>
+    <string name="longitude">Longitude</string>
+    <string name="latitude">Latitude</string>
+    <string name="altitude">Altitude</string>
+    <string name="roll">Roll</string>
+    <string name="pitch">Pitch</string>
+    <string name="yaw">Yaw</string>
+
+    <!-- Drone command -->
+    <string name="command_send">Send</string>
+    <string name="command_start">Start</string>
+    <string name="command_take_off">Take Off</string>
+    <string name="command_land">Land</string>
+    <string name="command_hover">Hover</string>
+    <string name="command_let_fly">Let Fly</string>
+    <string name="command_return">Return</string>
 
     <string name="zoom_fit">Zoom to Fit</string>
 
@@ -61,16 +107,16 @@
     <string name="drone_autopan_long_press">Long press to activate drone auto panning.</string>
     <string name="drone_no_location">No drone location available</string>
 
-
+    <!-- Preference String -->
     <string name="pref_connection_type">Telemetry Connection Type</string>
     <string name="pref_connection_type_summary">Which link to use to connect to the drone</string>
-
-    <!-- Preference String -->
     <string name="pref_connection">Connection Preferences</string>
     <string name="pref_server">TCP Connection</string>
     <string name="pref_server_ip">Server IP</string>
     <string name="pref_server_port">Server PORT</string>
     <string name="pref_server_udp">UDP Connection</string>
     <string name="pref_udp_server_port">UDP Server Port</string>
+
+
 
 </resources>

@@ -31,8 +31,8 @@ public class BaiduMapFragment extends SupportMapFragment{
 
     private static final String TAG = BaiduMapFragment.class.getSimpleName();
 
-    private MapView mMapView;
-    private LocationClient mLocClient;
+    protected MapView mMapView;
+    protected LocationClient mLocClient;
     public MyLocationListenner myListener = new MyLocationListenner();
 
     @Override
@@ -64,7 +64,7 @@ public class BaiduMapFragment extends SupportMapFragment{
         option.setCoorType("bd09ll"); // 设置坐标类型
 
         mLocClient.setLocOption(option);
-        //mLocClient.start();
+        mLocClient.start();
 
         return view;
     }

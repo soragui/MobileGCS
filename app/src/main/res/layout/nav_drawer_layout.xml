@@ -28,7 +28,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_home"
                     android:drawableStart="@drawable/ic_action_home"
                     android:text="@string/main_view" />
 
@@ -37,7 +36,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_plane"
                     android:drawableStart="@drawable/ic_action_plane"
                     android:text="@string/flight_data" />
 
@@ -48,7 +46,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_circles"
                     android:drawableStart="@drawable/ic_action_circles"
                     android:text="@string/route_management" />
 
@@ -57,7 +54,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_settings"
                     android:drawableStart="@drawable/ic_action_settings"
                     android:text="@string/mission_settings" />
 
@@ -74,7 +70,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_database"
                     android:drawableStart="@drawable/ic_action_database"
                     android:text="@string/screen_parameters" />
 
@@ -90,7 +85,6 @@
                     style="@style/navigationDrawerEntry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_action_gear"
                     android:drawableStart="@drawable/ic_action_gear"
                     android:text="@string/screen_cal" />
 

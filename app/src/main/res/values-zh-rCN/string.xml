@@ -5,10 +5,10 @@
     <string name="drawer_open">打开导航栏</string>
     <string name="drawer_close">关闭导航栏</string>
 
-    <!-- Generic strings -->
+    <!-- 通用设置字符串 -->
     <string name="main_view">主界面</string>
     <string name="mission_settings">任务设置</string>
-    <string name="help">Help</string>
+    <string name="help">帮助</string>
     <string name="menu_drone_setup">Drone Setup</string>
     <string name="app_settings">App Settings</string>
     <string name="flight_data">飞行数据</string>
@@ -16,15 +16,37 @@
     <string name="send_mission">Send Mission</string>
     <string name="load_mission">Load Mission</string>
 
-    <!-- Drone Setup tabs -->
     <string name="screen_tuning">Tuning</string>
-    <string name="screen_cal">设备校准</string>
+    <string name="screen_cal">飞控配置</string>
     <string name="screen_checklist">Checklist</string>
     <string name="screen_rc">Radio</string>
     <string name="screen_parameters">参数设置</string>
 
-    <!-- Flight Mode tabs -->
-    <string name="flight_mode">飞行模式</string>
+    <!-- Common Setup Buttons Resource Strings -->
+    <string name="button_setup_calibrate">校准</string>
+    <string name="button_setup_cancel">取消</string>
+
+    <!-- 设备配置 -->
+    <string name="setup_mag_title">校准</string>
+    <string name="setup_mag_start">点击校准开始磁罗盘校准。进行校准的时候远离金属物</string>
+    <string name="common_setting">设置</string>
+    <string name="common_query">查询</string>
+    <string name="speed_scope">速度范围</string>
+    <string name="scope_to"> --- </string>
+    <string name="sensitivity_unit">度/秒</string>
+    <string name="length_wise_dir">纵向设置</string>
+    <string name="cross_wise_dir">横向设置</string>
+    <string name="course_dir">航向设置</string>
+    <string name="lifting_dir">升降设置</string>
+    <string name="inner_sensitivity">内环灵敏度</string>
+    <string name="outer_sensitivity">外环灵敏度</string>
+    <string name="course_sensitivity">航向灵敏度</string>
+    <string name="lifting_sensitivity">升降灵敏度</string>
+    <string name="rc_transmit_cali">遥控器</string>
+    <string name="drone_type_select">构型</string>
+    <string name="setup_type_select">安装</string>
+    <string name="signal_cali">标定</string>
+    <string name="self_fly">自驾</string>
 
     <!-- Drone locator strings -->
     <string name="route_management">航线管理</string>
@@ -37,7 +59,12 @@
     <string name="menu_refresh_route">轨迹刷新</string>
     <string name="menu_route_show_hide">航线显示/隐藏</string>
     <string name="menu_command_panel">指令盘</string>
+    <string name="menu_magneto_cali">磁力计校准</string>
+    <string name="menu_analog_channel">通道设置</string>
+    <string name="menu_control_setup">控制律设置</string>
 
+
+    <!-- 飞行数据字符串 -->
     <string name="default_angle_value">--°</string>
     <string name="telemetry_default_value">0.0</string>
     <string name="speed_unit">m/s</string>
@@ -51,18 +78,40 @@
     <string name="flight_time_label">飞行时间</string>
     <string name="flight_time_value">00</string>
     <string name="flight_time_unit">s</string>
+    <string name="cpu_use_ratio">CPU利用率</string>
+    <string name="flight_state">运行状态</string>
+    <string name="contral_mode">控制模式</string>
+    <string name="flight_mode">飞行模式</string>
+    <string name="longitude">经度</string>
+    <string name="latitude">纬度</string>
+    <string name="altitude">高度</string>
+    <string name="roll">滚转</string>
+    <string name="pitch">俯仰</string>
+    <string name="yaw">偏航</string>
+
+    <!-- 无人机指令 -->
+    <string name="command_send">发送</string>
+    <string name="command_start">启动</string>
+    <string name="command_take_off">起飞</string>
+    <string name="command_land">着陆</string>
+    <string name="command_hover">悬停</string>
+    <string name="command_let_fly">放飞</string>
+    <string name="command_return">返航</string>
+
 
     <string name="zoom_fit">符合显示范围</string>
 
     <string name="pref_connection_type">遥测连接方式</string>
     <string name="pref_connection_type_summary">选择哪一种连接数传的方式与无人机沟通</string>
 
-    <!-- Preference String -->
+    <!-- 偏好设置 字符串 -->
     <string name="pref_connection">连接参数</string>
     <string name="pref_server">TCP 连接</string>
     <string name="pref_server_ip">服务器IP</string>
     <string name="pref_server_port">服务器端口</string>
     <string name="pref_server_udp">UDP连接</string>
     <string name="pref_udp_server_port">UDP服务器端口</string>
+
+
 
 </resources>

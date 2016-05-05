@@ -7,6 +7,8 @@ import android.util.Log;
 
 import com.MUHLink.MUHLinkPacket;
 import com.MUHLink.common.msg_attitude;
+import com.MUHLink.common.msg_flystatus1;
+import com.MUHLink.common.msg_flystatus2;
 import com.MUHLink.common.msg_heartbeat;
 import com.MUHLink.enums.MUH_MSG_ID;
 import com.diygcs.android.utils.AttributeEvent;
@@ -19,6 +21,7 @@ import org.uah.core.MUHLink.TCPConnection;
 /**
  * Created by Gui Zhou on 2016/3/17.
  */
+
 public class DroneManager implements MUHLinkStream.MuhLinkInputStream {
 
     private static final String TAG = DroneManager.class.getSimpleName();
@@ -51,14 +54,23 @@ public class DroneManager implements MUHLinkStream.MuhLinkInputStream {
         return droneClient.isConnected();
     }
 
+    public void sendBroadCast(String broadName) {
+        intent = new Intent(broadName);
+        localBroadcastManager.sendBroadcast(intent);
+    }
+
+    public void sendMuhPacket(MUHLinkPacket packet) {
+        droneClient.sendMuhPacket(packet);
+    }
+
     @Override
     public void notifyConnected() {
-
+        sendBroadCast(AttributeEvent.DRONE_CONNECTED);
     }
 
     @Override
     public void notifyDisconnected() {
-
+        sendBroadCast(AttributeEvent.DRONE_DISCONNECTED);
     }
 
     @Override
@@ -72,15 +84,23 @@ public class DroneManager implements MUHLinkStream.MuhLinkInputStream {
                 switch (packet.msgID) {
                     case MUH_MSG_ID.UAV_MSG_FCC_HEARTBEAT:
                         drone.getHeartbeatMsg(new msg_heartbeat(packet));
-                        intent = new Intent(AttributeEvent.DRONE_HEARTBEAT_DATA);
-                        localBroadcastManager.sendBroadcast(intent);
+                        sendBroadCast(AttributeEvent.DRONE_HEARTBEAT_DATA);
                         Log.i(TAG, "GET-HEARTBEAT-MSG");
                         return ;
+                    case MUH_MSG_ID.UAV_MSG_FCC_FLYSTATUS1:
+                        drone.getFlyStatus1(new msg_flystatus1(packet));
+                        sendBroadCast(AttributeEvent.DRONE_FLYSTATUS1_DATA);
+                        Log.i(TAG, "GET-FLYSTATUS1-MSG");
+                        return;
+                    case MUH_MSG_ID.UAV_MSG_FCC_FLYSTATUS2:
+                        drone.getFlyStatus2(new msg_flystatus2(packet));
+                        sendBroadCast(AttributeEvent.DRONE_FLYSTATUS2_DATA);
+                        Log.i(TAG, "GET-FLYSTATUS2-MSG");
+                        return;
                     case MUH_MSG_ID.UAB_MSG_FCC_ATTITUDE:
                         drone.getAttitudeMsg(new msg_attitude(packet));
-                        intent = new Intent(AttributeEvent.ATTITUDE_UPDATE);
-                        localBroadcastManager.sendBroadcast(intent);
-                        Log.i(TAG, "GET-HEARTBEAT-MSG");
+                        sendBroadCast(AttributeEvent.ATTITUDE_UPDATE);
+                        Log.i(TAG, "GET-ATTITUDE-MSG");
                     default:
                         return ;
                 }
