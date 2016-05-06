@@ -22,6 +22,7 @@ import android.widget.SlidingDrawer;
 import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.model.LatLng;
 import com.diygcs.android.DiygcsAPP;
 import com.diygcs.android.R;
@@ -52,10 +53,12 @@ public class MainActivity extends DrawerNavigationUI implements
     private FlightMapFragment mapFragment;
 
     private View mLocationButtonsContainer;
+    private View mMapViewTypeContainer;
     private ImageButton mGoToMyLocation;
     private ImageButton mGoToDroneLocation;
     private ImageButton mapZoomin;
     private ImageButton mapZoomout;
+    private ImageButton mapTypeChange;
 
     private FragmentManager fragmentManager;
 
@@ -99,23 +102,44 @@ public class MainActivity extends DrawerNavigationUI implements
 
         }
 
-        final SlidingDrawer slidingDrawer = (SlidingDrawer)findViewById(R.id.simple_flight_data);
+        final SlidingDrawer simpleDataDrawer = (SlidingDrawer)findViewById(R.id.simple_flight_data);
         //Only the phone layout has the sliding drawer
-        if(slidingDrawer != null) {
-            slidingDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
+        if(simpleDataDrawer != null) {
+            simpleDataDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
                 @Override
                 public void onDrawerClosed() {
-                    final int slidingDrawerHeight = slidingDrawer.getContent().getHeight();
-                    final boolean isSlidingDrawerOpened = slidingDrawer.isOpened();
-                    updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight-40);
+                    final int slidingDrawerHeight = simpleDataDrawer.getContent().getHeight();
+                    final boolean isSlidingDrawerOpened = simpleDataDrawer.isOpened();
+                    updateMapViewButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight-40);
                 }
             });
-            slidingDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
+            simpleDataDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
                 @Override
                 public void onDrawerOpened() {
-                    final int slidingDrawerHeight = slidingDrawer.getContent().getHeight();
-                    final boolean isSlidingDrawerOpened = slidingDrawer.isOpened();
-                    updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight-40);
+                    final int slidingDrawerHeight = simpleDataDrawer.getContent().getHeight();
+                    final boolean isSlidingDrawerOpened = simpleDataDrawer.isOpened();
+                    updateMapViewButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight-40);
+                }
+            });
+        }
+
+        final SlidingDrawer droneCommandDrawer = (SlidingDrawer)findViewById(R.id.drone_command);
+        //Only the phone layout has the sliding drawer
+        if(droneCommandDrawer != null) {
+            droneCommandDrawer.setOnDrawerCloseListener(new SlidingDrawer.OnDrawerCloseListener() {
+                @Override
+                public void onDrawerClosed() {
+                    final int slidingDrawerHeight = droneCommandDrawer.getContent().getHeight();
+                    final boolean isSlidingDrawerOpened = droneCommandDrawer.isOpened();
+                    updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight);
+                }
+            });
+            droneCommandDrawer.setOnDrawerOpenListener(new SlidingDrawer.OnDrawerOpenListener() {
+                @Override
+                public void onDrawerOpened() {
+                    final int slidingDrawerHeight = droneCommandDrawer.getContent().getHeight();
+                    final boolean isSlidingDrawerOpened = droneCommandDrawer.isOpened();
+                    updateLocationButtonsMargin(isSlidingDrawerOpened, slidingDrawerHeight);
                 }
             });
         }
@@ -123,8 +147,10 @@ public class MainActivity extends DrawerNavigationUI implements
         setupMapFragment();
 
         mLocationButtonsContainer = findViewById(R.id.location_button_container);
+        mMapViewTypeContainer     = findViewById(R.id.map_view_button_container);
         mGoToMyLocation = (ImageButton)findViewById(R.id.my_location_button);
         mGoToDroneLocation = (ImageButton)findViewById(R.id.drone_location_button);
+        mapTypeChange = (ImageButton)findViewById(R.id.map_type_btn);
         mapZoomin = (ImageButton)findViewById(R.id.map_zoom_in);
         mapZoomout = (ImageButton)findViewById(R.id.map_zoom_out);
 
@@ -158,6 +184,20 @@ public class MainActivity extends DrawerNavigationUI implements
      *  初始化组件事件监听函数
      */
     private void initCompListener() {
+
+        mapTypeChange.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if(mapFragment.getMapType() == BaiduMap.MAP_TYPE_NORMAL) {
+                    mapFragment.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                    mapTypeChange.setImageResource(R.drawable.map_satellite);
+                } else {
+                    mapFragment.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    mapTypeChange.setImageResource(R.drawable.map_normal);
+                }
+            }
+        });
 
         mGoToMyLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,6 +261,7 @@ public class MainActivity extends DrawerNavigationUI implements
     /**
      * Account for the various ui elements and update the map padding so that it
      *  remains 'vivible'.
+     *
      * @param isOpened
      * @param drawerHeight
      */
@@ -228,6 +269,32 @@ public class MainActivity extends DrawerNavigationUI implements
 
         // Update the right margin for the my location button
         final ViewGroup.MarginLayoutParams marginLp = (ViewGroup.MarginLayoutParams) mLocationButtonsContainer
+                .getLayoutParams();
+
+        final int bottomMargin;
+        if(isOpened) {
+            bottomMargin = marginLp.bottomMargin + drawerHeight;
+
+        } else {
+
+            bottomMargin = marginLp.bottomMargin - drawerHeight;
+        }
+
+        marginLp.setMargins(marginLp.leftMargin, marginLp.topMargin, marginLp.rightMargin,
+                bottomMargin);
+        mLocationButtonsContainer.requestLayout();
+
+    }
+
+
+    /**
+     *
+     * @param isOpened
+     * @param drawerHeight
+     */
+    private void updateMapViewButtonsMargin(boolean isOpened, int drawerHeight) {
+        // Update the right margin for the my location button
+        final ViewGroup.MarginLayoutParams marginLp = (ViewGroup.MarginLayoutParams) mMapViewTypeContainer
                 .getLayoutParams();
 
         final int topMargin;
@@ -241,8 +308,7 @@ public class MainActivity extends DrawerNavigationUI implements
 
         marginLp.setMargins(marginLp.leftMargin, topMargin, marginLp.rightMargin,
                 marginLp.bottomMargin);
-        mLocationButtonsContainer.requestLayout();
-
+        mMapViewTypeContainer.requestLayout();
     }
 
     /**

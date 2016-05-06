@@ -25,6 +25,14 @@ public class FlightMapFragment extends BaiduMapFragment {
         return view;
     }
 
+    public void setMapType(int mapType) {
+        getBaiduMap().setMapType(mapType);
+    }
+
+    public int getMapType() {
+        return getBaiduMap().getMapType();
+    }
+
     public void goToMyLocation() {
         mLocClient.requestLocation();
     }

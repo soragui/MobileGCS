@@ -27,14 +27,4 @@
         android:src="@drawable/ic_action_compass"
         />
 
-    <ImageButton
-        android:id="@+id/map_zoom_in"
-        style="@style/mapButton"
-        android:src="@drawable/map_zoom_in"/>
-
-    <ImageButton
-        android:id="@+id/map_zoom_out"
-        style="@style/mapButton"
-        android:src="@drawable/map_zoom_out"/>
-
 </LinearLayout>

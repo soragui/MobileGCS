@@ -7,7 +7,7 @@
 
     <!-- Generic strings -->
     <string name="main_view">Home</string>
-    <string name="mission_settings">Mission Settings</string>
+    <string name="mission_settings">Spray Settings</string>
     <string name="help">Help</string>
     <string name="menu_drone_setup">Drone Setup</string>
     <string name="app_settings">App Settings</string>
@@ -24,7 +24,7 @@
     <string name="screen_parameters">Parameters</string>
 
     <!-- Drone locator strings -->
-    <string name="route_management">Route Management</string>
+    <string name="route_management">Route Design</string>
     <string name="open_tlog_file">Open Log File</string>
     <string name="status_waiting_for_gps">Waiting for GPS…</string>
 

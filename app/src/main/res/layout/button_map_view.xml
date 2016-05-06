@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/map_view_button_container">
+
+    <ImageButton
+            android:id="@+id/map_type_btn"
+            style="@style/mapButton"
+            android:src="@drawable/map_satellite"/>
+
+    <ImageButton
+            android:id="@+id/map_zoom_in"
+            style="@style/mapButton"
+            android:src="@drawable/map_zoom_in"/>
+
+    <ImageButton
+            android:id="@+id/map_zoom_out"
+            style="@style/mapButton"
+            android:src="@drawable/map_zoom_out"/>
+
+</LinearLayout>

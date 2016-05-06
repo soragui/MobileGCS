@@ -7,7 +7,7 @@
 
     <!-- 通用设置字符串 -->
     <string name="main_view">主界面</string>
-    <string name="mission_settings">任务设置</string>
+    <string name="mission_settings">喷洒系统</string>
     <string name="help">帮助</string>
     <string name="menu_drone_setup">Drone Setup</string>
     <string name="app_settings">App Settings</string>
@@ -49,7 +49,7 @@
     <string name="self_fly">自驾</string>
 
     <!-- Drone locator strings -->
-    <string name="route_management">航线管理</string>
+    <string name="route_management">航线设计</string>
     <string name="open_tlog_file">Open Log File</string>
     <string name="status_waiting_for_gps">Waiting for GPS…</string>
 

@@ -16,11 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.diygcs.android.R;
-import com.diygcs.android.fragment.AnalogChannelFragment;
-import com.diygcs.android.fragment.ControlSetupFragment;
-import com.diygcs.android.fragment.RCTransmitFragment;
-import com.diygcs.android.fragment.SelfFlySetupFragment;
-import com.diygcs.android.fragment.SetupMAGFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.DroneTypeSelectFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.RCTransmitFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.SelfFlySetupFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.SetupMAGFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.SetupTypeSelectFragment;
+import com.diygcs.android.fragment.deviceCfgFragment.SignalCaliFragment;
 import com.diygcs.android.utils.AttributeEvent;
 
 public class DeviceCfgActivity extends DrawerNavigationUI {
@@ -112,6 +113,48 @@ public class DeviceCfgActivity extends DrawerNavigationUI {
 
     void initCompListener() {
 
+        droneSetupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.drone_type_select_btn);
+            }
+        });
+
+        setupTypeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.setup_type_select_btn);
+            }
+        });
+
+        setupMagBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.setup_mag_btn);
+            }
+        });
+
+        rcTransmitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.rc_transmit_cali_btn);
+            }
+        });
+
+        signalCaliBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.signal_cali_btn);
+            }
+        });
+
+        selfFlyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleFragment(R.id.self_fly_btn);
+            }
+        });
+
     }
 
     @Override
@@ -149,6 +192,7 @@ public class DeviceCfgActivity extends DrawerNavigationUI {
             case R.id.menu_connection:
                 toggleDroneConnection();
                 break;
+            /*
             case R.id.menu_magneto_cali:
                 handleFragment(R.id.menu_magneto_cali);
                 break;
@@ -158,6 +202,7 @@ public class DeviceCfgActivity extends DrawerNavigationUI {
             case R.id.menu_self_fly:
                 handleFragment(R.id.menu_self_fly);
                 break;
+                */
             default:
                 break;
         }
@@ -190,13 +235,22 @@ public class DeviceCfgActivity extends DrawerNavigationUI {
         final Fragment fragment;
 
         switch(fragmentId) {
-            case R.id.menu_magneto_cali:
+            case R.id.drone_type_select_btn:
+                fragment = new DroneTypeSelectFragment();
+                break;
+            case R.id.setup_type_select_btn:
+                fragment = new SetupTypeSelectFragment();
+                break;
+            case R.id.setup_mag_btn:
                 fragment = new SetupMAGFragment();
                 break;
-            case R.id.menu_rc_transmit_cali:
+            case R.id.rc_transmit_cali_btn:
                 fragment = new RCTransmitFragment();
                 break;
-            case R.id.menu_self_fly:
+            case R.id.signal_cali_btn:
+                fragment = new SignalCaliFragment();
+                break;
+            case R.id.self_fly_btn:
                 fragment = new SelfFlySetupFragment();
                 break;
             default:
@@ -208,15 +262,23 @@ public class DeviceCfgActivity extends DrawerNavigationUI {
     }
 
     private int getIdForFragmnet(Fragment fragment) {
-        if(fragment instanceof SetupMAGFragment) {
-            return R.id.menu_magneto_cali;
+
+        if(fragment instanceof DroneTypeSelectFragment) {
+            return R.id.drone_type_select_btn;
+        } else if(fragment instanceof SignalCaliFragment) {
+            return R.id.signal_cali_btn;
+        } else if(fragment instanceof SetupTypeSelectFragment) {
+            return R.id.setup_type_select_btn;
+        } else if(fragment instanceof SetupMAGFragment) {
+            return R.id.setup_mag_btn;
         } else if(fragment instanceof RCTransmitFragment) {
-            return R.id.menu_rc_transmit_cali;
+            return R.id.rc_transmit_cali_btn;
         } else if(fragment instanceof SelfFlySetupFragment) {
-            return R.id.menu_self_fly;
+            return R.id.self_fly_btn;
         } else {
-            return R.id.menu_magneto_cali;
+            return R.id.self_fly_btn;
         }
+
     }
 
     @Override
