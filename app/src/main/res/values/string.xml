@@ -50,6 +50,29 @@
     <string name="signal_cali">Signal Calibration</string>
     <string name="self_fly">Self Fly </string>
 
+    <!-- RC Setup -->
+    <string name="start_cali">Start Calibration</string>
+    <string name="median_cali">Calibration Median</string>
+    <string name="done_cali">Calibration Done</string>
+    <string name="data_query">Query Data</string>
+    <string name="receive_type">Receive Type</string>
+    <string name="channel_num">Channel Number</string>
+    <string name="polarity">Polarity</string>
+    <string name="max_number">Max Number</string>
+    <string name="min_number">Min Number</string>
+    <string name="median_number">Meidan Number</string>
+    <string name="polar_forward">Forward Direction</string>
+    <string name="polar_inversion">Inversion Direction</string>
+    <string name="rc_switch">Switch</string>
+    <string name="rc_longitudinal">Longitudinal</string>
+    <string name="rc_latitudinal">Latitudinal</string>
+    <string name="rc_collective_pitch">Collective Pitch</string>
+    <string name="rc_tail_rotor">Tail Rotor</string>
+    <string name="rc_throttle">Throttle</string>
+    <string name="rc_engine">Engine</string>
+    <string name="rc_water_pump">Water Pump</string>
+    <string name="rc_flow_rate">Flow Rate</string>
+
     <!-- Common Setup Buttons Resource Strings -->
     <string name="button_setup_calibrate">Calibrate</string>
     <string name="button_setup_cancel">Cancel</string>

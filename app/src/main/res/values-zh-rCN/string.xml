@@ -48,6 +48,29 @@
     <string name="signal_cali">标定</string>
     <string name="self_fly">自驾</string>
 
+    <!-- 遥控器配置 -->
+    <string name="start_cali">校准开始</string>
+    <string name="median_cali">校准中位</string>
+    <string name="done_cali">校准完成</string>
+    <string name="data_query">数据查询</string>
+    <string name="receive_type">接收机类型</string>
+    <string name="channel_num">通道号</string>
+    <string name="polarity">极性</string>
+    <string name="max_number">最大位</string>
+    <string name="min_number">最小位</string>
+    <string name="median_number">中立位</string>
+    <string name="polar_forward">正向</string>
+    <string name="polar_inversion">反向</string>
+    <string name="rc_switch">开关</string>
+    <string name="rc_longitudinal">纵向</string>
+    <string name="rc_latitudinal">横向</string>
+    <string name="rc_collective_pitch">总距</string>
+    <string name="rc_tail_rotor">尾桨</string>
+    <string name="rc_throttle">油门</string>
+    <string name="rc_engine">发动机</string>
+    <string name="rc_water_pump">水泵</string>
+    <string name="rc_flow_rate">流量</string>
+
     <!-- Drone locator strings -->
     <string name="route_management">航线设计</string>
     <string name="open_tlog_file">Open Log File</string>

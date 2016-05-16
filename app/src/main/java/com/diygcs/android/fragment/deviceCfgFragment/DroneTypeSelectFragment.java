@@ -12,6 +12,7 @@ import com.diygcs.android.fragment.BaseFragment;
 /**
  * Created by Gui Zhou on 2016-05-06.
  */
+
 public class DroneTypeSelectFragment extends BaseFragment {
 
     @Override
