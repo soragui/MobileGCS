@@ -30,6 +30,8 @@
 
     <color name="flightDataLayout">#3CB4E3</color>
 
+    <color name="progressbar">#39b944</color>
+
     <color name="color_drone_type">#9384c1</color>
     <color name="color_setup_type">#84a8cc</color>
     <color name="color_setup_mag">#9384c1</color>

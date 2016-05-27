@@ -60,7 +60,7 @@
     <string name="min_number">最小位</string>
     <string name="median_number">中立位</string>
     <string name="polar_forward">正向</string>
-    <string name="polar_inversion">反向</string>
+    <string name="polar_reverse">反向</string>
     <string name="rc_switch">开关</string>
     <string name="rc_longitudinal">纵向</string>
     <string name="rc_latitudinal">横向</string>

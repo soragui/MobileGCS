@@ -62,7 +62,7 @@
     <string name="min_number">Min Number</string>
     <string name="median_number">Meidan Number</string>
     <string name="polar_forward">Forward Direction</string>
-    <string name="polar_inversion">Inversion Direction</string>
+    <string name="polar_reverse">Inversion Direction</string>
     <string name="rc_switch">Switch</string>
     <string name="rc_longitudinal">Longitudinal</string>
     <string name="rc_latitudinal">Latitudinal</string>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/transparentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 开关通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_switch" />
+
+            <ProgressBar
+                android:id="@+id/rc_switch_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_switch_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 纵向通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_longitudinal" />
+
+            <ProgressBar
+                android:id="@+id/rc_longitudinal_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_longitudinal_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 横向通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_latitudinal" />
+
+            <ProgressBar
+                android:id="@+id/rc_latitudinal_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_latitudinal_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 总距通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_collective_pitch" />
+
+            <ProgressBar
+                android:id="@+id/rc_collective_pitch_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_collective_pitch_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 尾桨通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_tail_rotor" />
+
+            <ProgressBar
+                android:id="@+id/rc_tail_rotor_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_tail_rotor_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 油门通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_throttle" />
+
+            <ProgressBar
+                android:id="@+id/rc_throttle_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_throttle_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 发动机通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_engine" />
+
+            <ProgressBar
+                android:id="@+id/rc_engine_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_engine_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 水泵通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_water_pump" />
+
+            <ProgressBar
+                android:id="@+id/rc_water_pump_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_water_pump_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+        <!-- 油量通道 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/rc_flow_rate" />
+
+            <ProgressBar
+                android:id="@+id/rc_flow_rate_proBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:progress="23"
+                android:progressDrawable="@drawable/rc_channel_progress_bar" />
+
+            <Button
+                android:id="@+id/rc_polar_flow_rate_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/polar_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/max_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/median_number" />
+
+            <EditText
+                style="@style/commonStyle"
+                android:layout_weight="1"
+                android:hint="@string/min_number" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

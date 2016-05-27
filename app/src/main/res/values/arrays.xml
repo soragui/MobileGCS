@@ -10,4 +10,10 @@
         <item name="TCP">TCP</item>
         <item name="UDP">UDP</item>
     </string-array>
+
+    <string-array name="receive_type">
+        <item name="PWM">PWM</item>
+        <item name="PPM">PPM</item>
+    </string-array>
+
 </resources>

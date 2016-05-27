@@ -4,4 +4,71 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_cali_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/start_cali"/>
+
+        <Button
+            android:id="@+id/median_cali_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/median_cali"/>
+
+        <Button
+            android:id="@+id/done_cali_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/done_cali"/>
+
+        <Button
+            android:id="@+id/data_query_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/data_query"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center_horizontal"
+            android:text="@string/receive_type" />
+
+        <Spinner
+            android:id="@+id/receive_type_spin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/receive_type"/>
+
+        <Button
+            style="@style/commonStyle"
+            android:layout_weight="3"
+            android:text="@string/common_setting"/>
+
+        <Button
+            style="@style/commonStyle"
+            android:layout_weight="3"
+            android:text="@string/common_query"/>
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/rc_transmit_channel" />
+
 </LinearLayout>
