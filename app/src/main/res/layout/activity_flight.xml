@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ziwo5.diygcs.diydrones.android.activities.FlightActivity">
+    tools:context="com.diygcs.android.activities.FlightActivity">
 
     <!-- 显示飞机飞行状态和控制模式 -->
     <LinearLayout

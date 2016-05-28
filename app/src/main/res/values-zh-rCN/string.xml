@@ -70,6 +70,7 @@
     <string name="rc_engine">发动机</string>
     <string name="rc_water_pump">水泵</string>
     <string name="rc_flow_rate">流量</string>
+    <string name="setup_type_prompt">请选择IMU、GPS的类型，以及IMU的安装方向，并设置安装位置</string>
 
     <!-- Drone locator strings -->
     <string name="route_management">航线设计</string>
