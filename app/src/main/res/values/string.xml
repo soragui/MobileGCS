@@ -114,6 +114,17 @@
     <string name="pitch">Pitch</string>
     <string name="yaw">Yaw</string>
     <string name="setup_type_prompt">Please choose the type of IMU, GPS and IMU installation direction, and set the installation location</string>
+    <string name="imu_direction">IMU Direction</string>
+    <string name="mag_com_direction">ManComp Direction</string>
+    <string name="dir_front">Front</string>
+    <string name="dir_back">Back</string>
+    <string name="dir_left">Left</string>
+    <string name="dir_right">Right</string>
+    <string name="imu_setup_type">IMU Setup Position</string>
+    <string name="mag_com_setup_type">ManComp Setup Position</string>
+    <string name="x_axis">X Axis</string>
+    <string name="y_axis">Y Axis</string>
+    <string name="z_axis">Z Axis</string>
 
     <!-- Drone command -->
     <string name="command_send">Send</string>
@@ -140,7 +151,5 @@
     <string name="pref_server_port">Server PORT</string>
     <string name="pref_server_udp">UDP Connection</string>
     <string name="pref_udp_server_port">UDP Server Port</string>
-
-
 
 </resources>

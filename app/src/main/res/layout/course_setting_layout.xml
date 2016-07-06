@@ -4,10 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
+        style="@style/device_cfg_title_text"
         android:text="@string/course_dir"/>
 
     <LinearLayout

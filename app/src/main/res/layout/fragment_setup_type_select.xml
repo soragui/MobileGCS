@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +18,167 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/devicedir" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonStyle"
+                android:layout_weight="3"
+                android:text="@string/imu_direction"/>
+
+            <Button
+                android:id="@+id/imu_front_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_front"/>
+
+            <Button
+                android:id="@+id/imu_back_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_back"/>
+
+            <Button
+                android:id="@+id/imu_left_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_left"/>
+
+            <Button
+                android:id="@+id/imu_right_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_right"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonStyle"
+                android:layout_weight="3"
+                android:text="@string/mag_com_direction"/>
+
+            <Button
+                android:id="@+id/mag_com_front_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_front"/>
+
+            <Button
+                android:id="@+id/mag_com_back_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_back"/>
+
+            <Button
+                android:id="@+id/mag_com_left_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_left"/>
+
+            <Button
+                android:id="@+id/mag_com_right_btn"
+                style="@style/commonStyle"
+                android:layout_weight="2"
+                android:text="@string/dir_right"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/devicepos" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/device_setup_type"
+                android:text="@string/imu_setup_type"/>
+
+            <TextView
+                style="@style/device_setup_type"
+                android:text="@string/mag_com_setup_type"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/x_axis"/>
+
+            <EditText
+                android:id="@+id/imu_x_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/x_axis"/>
+
+            <EditText
+                android:id="@+id/mag_com_x_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/y_axis"/>
+
+            <EditText
+                android:id="@+id/imu_y_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/y_axis"/>
+
+            <EditText
+                android:id="@+id/mag_com_y_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/z_axis"/>
+
+            <EditText
+                android:id="@+id/imu_z_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+            <TextView
+                style="@style/device_setup_dir_text_view"
+                android:text="@string/z_axis"/>
+
+            <EditText
+                android:id="@+id/mag_com_z_axis_edt"
+                style="@style/device_setup_dir_edit_text"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

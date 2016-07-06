@@ -8,6 +8,11 @@ import com.MUHLink.enums.MUH_MSG_ID;
  * Created by Gui Zhou on 2016-03-10.
  */
 
+/**
+ *   在解析包数据的时候，要注意数据类型、有符号或无符号.....
+ *   否则解析容易出错
+ */
+
 public class Parser {
 
     private static final String TAG = Parser.class.getSimpleName();
@@ -64,35 +69,35 @@ public class Parser {
                 }
                 break;
             case DATALINK_PARSE_STATE_GOT_STX2:
-                m.len = (byte)c;
+                m.len = c;
                 Log.i(TAG, "Length = " + m.len);
                 state = Datalink_states.DATALINK_PARSE_STATE_GOT_LENGTH;
                 break;
             case DATALINK_PARSE_STATE_GOT_LENGTH:
-                m.seq = (byte)c;
+                m.seq = c;
                 Log.i(TAG, "Seq = " + m.seq);
                 state = Datalink_states.DATALINK_PARSE_STATE_GOT_SEQ;
                 break;
             case DATALINK_PARSE_STATE_GOT_SEQ:
-                m.sysID = (byte)c;
+                m.sysID = c;
                 Log.i(TAG, "sysID = " + m.sysID);
                 state = Datalink_states.DATALINK_PARSE_STATE_GOT_SYSID;
                 break;
             case DATALINK_PARSE_STATE_GOT_SYSID:
-                m.compID = (byte)c;
+                m.compID = c;
                 Log.i(TAG, "compID = " + m.compID);
                 state = Datalink_states.DATALINK_PARSE_STATE_GOT_COMPID;
                 break;
             case DATALINK_PARSE_STATE_GOT_COMPID:
-                m.msgID = (byte)c;
+                m.msgID = c;
                 Log.i(TAG, "msgID = " + m.msgID);
                 state = Datalink_states.DATALINK_PARSE_STATE_GOT_MSGID;
                 break;
             case DATALINK_PARSE_STATE_GOT_MSGID:
                 m.payload.add((byte)c);
-                Log.i(TAG, "ADD msg: " + c);
-                if(((byte)m.payload.size()) == m.len) {
-                    Log.i(TAG, "LEN- " + m.len);
+                //Log.i(TAG, "ADD msg: " + c);
+                if(m.payloadFilled()) {
+                    //Log.i(TAG, "LEN- " + m.len);
                     state = Datalink_states.DATALINK_PARSE_STATE_GOT_PAYLOAD;
                 }
                 break;
@@ -116,8 +121,6 @@ public class Parser {
                     state = Datalink_states.DATALINK_PARSE_STATE_UNINIT;
                 }
                 break;
-
-
         }
 
         if(msg_received) {

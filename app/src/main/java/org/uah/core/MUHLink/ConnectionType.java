@@ -3,6 +3,7 @@ package org.uah.core.MUHLink;
 /**
  * Created by Gui Zhou on 2016-03-19.
  */
+
 public class ConnectionType {
 
     public static final int TYPE_TCP = 1;

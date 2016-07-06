@@ -82,7 +82,7 @@ public class DroneManager implements MUHLinkStream.MuhLinkInputStream {
              */
             case MUH_MSG_ID.UAV_COMP_ID_FCC: {
                 switch (packet.msgID) {
-                    case MUH_MSG_ID.UAV_MSG_FCC_HEARTBEAT:
+                    case MUH_MSG_ID.UAV_MSG_FCC_HEARTBEATD:
                         drone.getHeartbeatMsg(new msg_heartbeat(packet));
                         sendBroadCast(AttributeEvent.DRONE_HEARTBEAT_DATA);
                         Log.i(TAG, "GET-HEARTBEAT-MSG");
@@ -97,10 +97,6 @@ public class DroneManager implements MUHLinkStream.MuhLinkInputStream {
                         sendBroadCast(AttributeEvent.DRONE_FLYSTATUS2_DATA);
                         Log.i(TAG, "GET-FLYSTATUS2-MSG");
                         return;
-                    case MUH_MSG_ID.UAB_MSG_FCC_ATTITUDE:
-                        drone.getAttitudeMsg(new msg_attitude(packet));
-                        sendBroadCast(AttributeEvent.ATTITUDE_UPDATE);
-                        Log.i(TAG, "GET-ATTITUDE-MSG");
                     default:
                         return ;
                 }

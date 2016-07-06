@@ -71,6 +71,17 @@
     <string name="rc_water_pump">水泵</string>
     <string name="rc_flow_rate">流量</string>
     <string name="setup_type_prompt">请选择IMU、GPS的类型，以及IMU的安装方向，并设置安装位置</string>
+    <string name="imu_direction">IMU 安装方向</string>
+    <string name="mag_com_direction">磁罗盘安装方向</string>
+    <string name="dir_front">前</string>
+    <string name="dir_back">后</string>
+    <string name="dir_left">左</string>
+    <string name="dir_right">右</string>
+    <string name="imu_setup_type">IMU 安装位置</string>
+    <string name="mag_com_setup_type">磁罗盘安装位置</string>
+    <string name="x_axis">X 轴</string>
+    <string name="y_axis">Y 轴</string>
+    <string name="z_axis">Z 轴</string>
 
     <!-- Drone locator strings -->
     <string name="route_management">航线设计</string>

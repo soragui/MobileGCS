@@ -39,19 +39,19 @@ public class MUHLinkPacket implements Serializable{
     /**
      *  数据长度
      */
-    public byte len;
+    public int len;
 
     /**
      *  包序列
      */
-    public byte seq;
+    public int seq;
 
     /**
      *  各种 ID
      */
-    public byte sysID;
-    public byte compID;
-    public byte msgID;
+    public int sysID;
+    public int compID;
+    public int msgID;
 
     /**
      * 有效的消息数据
@@ -105,11 +105,11 @@ public class MUHLinkPacket implements Serializable{
 
         buffer[i++] = (byte)MUHLINK_SYNC_HEAD_1;
         buffer[i++] = (byte)MUHLINK_SYNC_HEAD_2;
-        buffer[i++] = len;
-        buffer[i++] = seq;
-        buffer[i++] = sysID;
-        buffer[i++] = compID;
-        buffer[i++] = msgID;
+        buffer[i++] = (byte)len;
+        buffer[i++] = (byte)seq;
+        buffer[i++] = (byte)sysID;
+        buffer[i++] = (byte)compID;
+        buffer[i++] = (byte)msgID;
 
         generateCRC();
         buffer[i++] = (byte) (crc.getLSB());
@@ -130,10 +130,8 @@ public class MUHLinkPacket implements Serializable{
              */
             case MUH_MSG_ID.UAV_COMP_ID_FCC: {
                 switch (msgID) {
-                    case MUH_MSG_ID.UAV_MSG_FCC_HEARTBEAT:
+                    case MUH_MSG_ID.UAV_MSG_FCC_HEARTBEATD:
                         return new msg_heartbeat(this);
-                    case MUH_MSG_ID.UAB_MSG_FCC_ATTITUDE:
-                        return new msg_attitude(this);
                     default:
                         return null;
                 }

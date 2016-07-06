@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class MUHLinkConnection {
 
     private static final String TAG = MUHLinkConnection.class.getSimpleName();
-    private static final int READ_BUFFER_SIZE = 128;
+    private static final int READ_BUFFER_SIZE = 256;
 
     /*
     * MuhLink connection states.
@@ -67,11 +67,12 @@ public abstract class MUHLinkConnection {
 
                 final Parser parser = new Parser();
 
+
                 final byte[] readBuffer = new byte[READ_BUFFER_SIZE];
 
                 while (mConnectionStatus.get() == MUHLINK_CONNECTED) {
                     int bufferSize = readDataBlock(readBuffer);
-                    Log.i(TAG, "RECV-SOME-DATA");
+                    Log.i(TAG, "RECV-SOME-DATA: BUFSIZE = " + bufferSize);
                     handleData(parser, bufferSize, readBuffer);
                 }
 
@@ -93,14 +94,15 @@ public abstract class MUHLinkConnection {
                 return ;
             }
 
-            Log.i(TAG, "Handler-Data: " + buffersize);
+            //Log.i(TAG, "Handler-Data: " + buffersize);
             for(int i = 0; i < buffersize; i++) {
                 MUHLinkPacket receivedPacket = parser.datalink_parser_char(buffer[i] & 0x00ff);
+                Log.i(TAG, "H");
                 if(receivedPacket != null) {
                     /**
                      *  真正处理数据的地方
                      */
-                    Log.i(TAG, "HANDLE-DATA:---");
+                    Log.i(TAG, "Realy Handler Data!");
                     reportReceivedPack(receivedPacket);
                 }
             }
