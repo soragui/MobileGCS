@@ -53,7 +53,7 @@ public class msg_heartbeat extends MUHLinkMessage {
     public msg_heartbeat(MUHLinkPacket muhLinkPacket) {
         this.sysid = muhLinkPacket.sysID;
         this.compid = muhLinkPacket.compID;
-        this.msgid = MUH_MSG_ID.UAV_MSG_FCC_HEARTBEAT;
+        this.msgid = MUH_MSG_ID.UAV_MSG_FCC_HEARTBEATD;
         unpack(muhLinkPacket.payload);
     }
 
