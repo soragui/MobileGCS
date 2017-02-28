@@ -103,6 +103,7 @@
     <string name="flight_time_hour">h</string>
     <string name="flight_time_minute">m</string>
     <string name="flight_time_second">s</string>
+    <string name="flight_time_unit">s</string>
     <string name="cpu_use_ratio">CPU Ratio</string>
     <string name="flight_state">Flight State</string>
     <string name="contral_mode">Contral Mode</string>
